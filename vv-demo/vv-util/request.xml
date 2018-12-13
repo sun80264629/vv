@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<saml2p:AuthnRequest
+  xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+  AssertionConsumerServiceURL="http://localhost:7080/saml/response"
+  Destination="http://localhost:7080/saml/request"
+  ID="e8957d53-08f9-48b6-9b0f-f8ed0141dfa3"
+  IssueInstant="2017-08-28T06:46:40.954Z"
+  Version="2.0"
+>
+  <saml2:Issuer
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
+  >com.vv.demo.util.saml</saml2:Issuer>
+</saml2p:AuthnRequest>
+

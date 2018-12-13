@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 赛事播报任务 -->
+	<bean id="stateJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.vv.demo.quartz.job.ConcurrentJob" />
+		<property name="durability" value="true"></property><!-- 数据库持久化时此值配置为true -->
+	</bean>
+	<bean id="stateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="stateJob" />
+		<property name="cronExpression" value="0/10 * * * * ?" />
+		<!-- 
+			错失处理
+			org.quartz.CronTrigger#MISFIRE_INSTRUCTION_FIRE_ONCE_NOW = 1 错失后立马执行一次
+	 		org.quartz.CronTrigger#MISFIRE_INSTRUCTION_DO_NOTHING=2 错失的trigger不做任何处理
+	 		org.quartz.Trigger#MISFIRE_INSTRUCTION_SMART_POLICY=0（默认）：
+	 		ps： 如何判断错失？
+	 		根据org.quartz.jobStore.misfireThreshold参数配置
+		-->
+		<property name="misfireInstruction" value="2"></property>
+	</bean>
+	
+	<!-- 赛事播报任务 -->
+	<!-- <bean id="concurrentJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.vv.demo.quartz.job.ConcurrentJob" />
+		<property name="durability" value="true"></property>数据库持久化时此值配置为true
+	</bean>
+	<bean id="concurrentJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="concurrentJob" />
+		<property name="cronExpression" value="0/20 * * * * ?" />
+	</bean> -->
+	<!-- Scheduler Listeners -->
+	<bean id="quartzSchedulerListener" class="com.vv.demo.quartz.listener.QuartzSchedulerListener"></bean>
+	<bean id="quartzTriggerListener" class="com.vv.demo.quartz.listener.QuartzTriggerListener"></bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- 环境启动后延迟*秒加载 -->
+		<property name="startupDelay" value="0" />
+		<!-- 每次加载是否更新数据库 -->
+		<property name="overwriteExistingJobs" value="true" />
+		<property name="schedulerListeners">
+			<list>
+				<ref bean="quartzSchedulerListener" />
+			</list>
+		</property>
+		<property name="globalTriggerListeners">
+			<list>
+				<ref bean="quartzTriggerListener" />
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="stateJobTrigger" />
+				<!-- <ref bean="concurrentJobTrigger" /> -->
+			</list>
+		</property>
+		<!-- 加载数据源 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 加载quartz配置 -->
+		<property name="configLocation" value="classpath:quartz.properties" />
+	</bean>
+
+</beans>

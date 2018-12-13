@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<soap11:Envelope
+  xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"
+>
+  <soap11:Body>
+    <saml2p:AttributeQuery
+      xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+      ID="AttrQuery12345789"
+      IssueInstant="2017-08-29T02:21:57.304Z"
+      Version="2.0"
+    >
+      <saml2:Issuer
+        xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+      >http://somecom.com/SomeJavaRelyingParty</saml2:Issuer>
+      <saml2:Subject
+        xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+      >
+        <saml2:NameID>harold_dt</saml2:NameID>
+      </saml2:Subject>
+      <saml2:Attribute
+        xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+        Name="FullName"
+      />
+      <saml2:Attribute
+        xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+        Name="JobTitle"
+      />
+    </saml2p:AttributeQuery>
+  </soap11:Body>
+</soap11:Envelope>
+

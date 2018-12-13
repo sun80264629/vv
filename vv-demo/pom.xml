@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.vv.demo</groupId>
+	<artifactId>vv-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>vv-demo</name>
+
+	<modules>
+		<module>vv-design</module>
+		<module>vv-j2se</module>
+		<module>vv-util</module>
+		<module>vv-web</module>
+		<module>vv-jpush</module>
+		<module>vv-hadoop</module>
+		<module>vv-quartz</module>
+    <module>vv-security</module>
+  </modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<developers>
+	</developers>
+
+	<scm>
+		<url>https://github.com/sun80264629/vv</url>
+		<connection>scm:git:https://github.com/sun80264629/vv</connection>
+		<developerConnection>scm:git:sun80264629@sina.com</developerConnection>
+		<tag>https://github.com/sun80264629/vv</tag>
+	</scm>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-schemas</artifactId>
+				<version>3.11</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<description>http://maven.apache.org</description>
+	<build>
+		<finalName>vv-demo</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- or whatever version you use -->
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

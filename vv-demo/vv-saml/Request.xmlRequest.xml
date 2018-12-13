@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<soap11:Envelope
+  xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"
+>
+  <soap11:Body>
+    <saml2p:AuthnQuery
+      xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+      ID="AuthnQuery12345789"
+      IssueInstant="2017-08-28T06:12:55.316Z"
+      Version="2.0"
+    >
+      <saml2:Issuer
+        xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+      >http://somecom.com/SomeJavaRelyingParty</saml2:Issuer>
+      <saml2:Subject
+        xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+      >
+        <saml2:NameID>harold_dt</saml2:NameID>
+      </saml2:Subject>
+      <saml2p:RequestedAuthnContext>
+        <saml2:AuthnContextClassRef
+          xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+        >urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml2:AuthnContextClassRef>
+      </saml2p:RequestedAuthnContext>
+    </saml2p:AuthnQuery>
+  </soap11:Body>
+</soap11:Envelope>
+

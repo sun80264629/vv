@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml2p:AuthnRequest AssertionConsumerServiceURL="http://baidu.com"
+	ForceAuthn="false" ID="6902673206766975727" IsPassive="false"
+	IssueInstant="2017-08-28T06:30:27.837Z" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+	Version="2.0" xmlns:uias="urn:oasis:names:tc:SAML:2.0:protocol">
+	<saml1:Issuer xmlns:saml1="urn:oasis:names:tc:SAML:2.0:assertion">http://localhost:8070/uias/samlIdp/samlSSOService
+	</saml1:Issuer>
+	<saml2p:NameIDPolicy AllowCreate="true"
+		Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+		SPNameQualifier="http://baidu.com" xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="urn:oasis:names:tc:SAML:2.0:protocol" />
+	<saml2p:RequestedAuthnContext Comparison="exact"
+		xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol">
+		<saml:AuthnContextClassRef xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">urn:oasis:names:tc:SAML:2.0:ac:classes:Password
+		</saml:AuthnContextClassRef>
+	</saml2p:RequestedAuthnContext>
+</saml2p:AuthnRequest>

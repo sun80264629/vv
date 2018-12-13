@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<http pattern="/jsp/login.jsp" security="none" />
+	<http pattern="/hello" security="none" />
+
+	<!-- 自定义登录页面 -->
+	<!-- 1. login-processing-url 默认的登录用户验证路径为：j_spring_security_check，这个路径是可以自己定义-->
+	<!-- 注意：将login-processing-url改为“/login.do"之后登陆的处理还是spring security自己的/j_spring_security_check路径对应的action处理，这里配置只是自定义了路径  -->
+	<http auto-config='true'>
+		<!-- <intercept-url pattern="/**" access="ROLE_USER" /> -->
+		<intercept-url pattern="/jsp/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"  />
+		<intercept-url pattern="/hello" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/saml/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login login-page='/jsp/login.jsp' username-parameter="username" password-parameter="password" authentication-failure-url="/jsp/failure.jsp"  default-target-url="/jsp/success.jsp"/>
+	</http>
+	
+	<!-- <authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
+				<user name="bob" password="bobspassword" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager> -->
+
+	<authentication-manager>
+		<authentication-provider ref="authenticationProvider"></authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">  
+		<!-- 用户找不到时，异常是否隐藏 -->
+	    <beans:property name="hideUserNotFoundExceptions" value="false" />  
+	    <beans:property name="userDetailsService" ref="userDetailsService"></beans:property>
+	</beans:bean> 
+
+	<beans:bean id="userDetailsService" class="com.vv.base.web.login.userdetails.LoginUserDetailsService">  
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
+	</beans:bean>
+
+
+</beans:beans>

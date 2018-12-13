@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/studyPythone/studyPythone.iml" filepath="$PROJECT_DIR$/vv-demo/studyPythone/studyPythone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/vv.iml" filepath="$PROJECT_DIR$/.idea/vv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-boot/vv-boot.iml" filepath="$PROJECT_DIR$/vv-demo/vv-boot/vv-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-demo.iml" filepath="$PROJECT_DIR$/vv-demo/vv-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-design/vv-design.iml" filepath="$PROJECT_DIR$/vv-demo/vv-design/vv-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-j2se/vv-j2se.iml" filepath="$PROJECT_DIR$/vv-demo/vv-j2se/vv-j2se.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-jpush/vv-jpush.iml" filepath="$PROJECT_DIR$/vv-demo/vv-jpush/vv-jpush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-mvc/vv-mvc.iml" filepath="$PROJECT_DIR$/vv-demo/vv-mvc/vv-mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-quartz/vv-quartz.iml" filepath="$PROJECT_DIR$/vv-demo/vv-quartz/vv-quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-saml/vv-saml.iml" filepath="$PROJECT_DIR$/vv-demo/vv-saml/vv-saml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-security/vv-security.iml" filepath="$PROJECT_DIR$/vv-demo/vv-security/vv-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-util/vv-util.iml" filepath="$PROJECT_DIR$/vv-demo/vv-util/vv-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vv-demo/vv-web/vv-web.iml" filepath="$PROJECT_DIR$/vv-demo/vv-web/vv-web.iml" />
+    </modules>
+  </component>
+</project>
